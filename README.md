@@ -23,23 +23,23 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/runnart/openaiclient"
+	openai "github.com/runnart/openaiclient"
 )
 
 func main() {
 	// Replace SERVER_URL with your actual SERVER_URL key
-	client, err := openaiclient.NewClient("SERVER_URL")
+	client, err := openai.NewClient("SERVER_URL")
 	if err != nil {
 		panic(err)
 	}
 
 	// Generate a text completion
 	prompt := "Once upon a time,"
-	req := &openaiclient.CreateChatCompletionRequest{
+	req := &openai.CreateChatCompletionRequest{
 		Model: "gpt-3.5-turbo",
-		Messages: []openaiclient.ChatCompletionRequestMessage{
+		Messages: []openai.ChatCompletionRequestMessage{
 			{
-				Role:    openaiclient.ChatCompletionRequestMessageRoleUser,
+				Role:    openai.ChatCompletionRequestMessageRoleUser,
 				Content: prompt,
 			},
 		},
@@ -58,6 +58,48 @@ func main() {
 ```
 
 This example generates a text completion using the OpenAI API, based on a prompt of "Once upon a time,". The resulting completed text is printed to the console.
+
+You can also use bearer token auth. Here's an example:
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	openai "github.com/runnart/openaiclient"
+)
+
+func main() {
+	// Replace SERVER_URL and API_TOKEN with your actual SERVER_URL and API_TOKEN values
+	client, err := openai.NewClient("SERVER_URL", openai.WithClientMiddleware(openai.BearerTokenMiddleware("API_TOKEN")))
+	if err != nil {
+		panic(err)
+	}
+
+	// Generate a text completion
+	prompt := "Once upon a time,"
+	req := &openai.CreateChatCompletionRequest{
+		Model: "gpt-3.5-turbo",
+		Messages: []openai.ChatCompletionRequestMessage{
+			{
+				Role:    openai.ChatCompletionRequestMessageRoleUser,
+				Content: prompt,
+			},
+		},
+	}
+	response, err := client.CreateChatCompletion(context.Background(), req)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	// Print the completed text
+	fmt.Println(response.Choices[0].Message.Value.Content)
+}
+
+```
 
 ## Contributing
 
