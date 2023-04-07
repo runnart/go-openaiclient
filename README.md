@@ -114,4 +114,4 @@ This SDK is open source, and contributions are welcome! If you have any bug repo
 
 ## Licence
 
-This SDK is released under the MIT License. See [LICENSE](https://github.com/runnart/openaiclient/LICENSE) for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/runnart/go-openaiclient/blob/main/LICENSE) file for details.
