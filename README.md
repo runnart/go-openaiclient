@@ -7,7 +7,7 @@ This is an unofficial Golang SDK for the OpenAI API. It provides a simple and ea
 To install the OpenAI Golang SDK, simply run:
 
 ```sh
-go get github.com/runnart/openaiclient
+go get github.com/runnart/go-openaiclient
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ import (
 	"context"
 	"fmt"
 
-	openai "github.com/runnart/openaiclient"
+	openai "github.com/runnart/go-openaiclient"
 )
 
 func main() {
@@ -75,7 +75,7 @@ import (
 	"fmt"
 	"os"
 
-	openai "github.com/runnart/openaiclient"
+	openai "github.com/runnart/go-openaiclient"
 )
 
 func main() {
