@@ -12,6 +12,12 @@ go get github.com/runnart/openaiclient
 
 ## Usage
 
+The OpenAI Golang SDK can be easily generated using a `_oas/schema.yaml` file that defines specification for the OpenAI API. To generate the SDK, project uses the [ogen](https://github.com/ogen-go/ogen) tool, which is a code generator for OpenAPI specifications. This allows you to easily update the SDK as the OpenAI API changes. If you change schema and want to generate sdk you can run the following command in makefile:
+
+```sh
+make generate
+```
+
 To use the OpenAI Golang SDK, you will need to have an API key for the OpenAI API. You can obtain an API key by [creating an account](https://beta.openai.com/signup/) on the OpenAI website.
 
 Once you have your API key, you can create a new OpenAI client and start making requests to the API. Here's an example:
