@@ -67,19 +67,20 @@ package main
 import (
 	"context"
 	"fmt"
+	"os"
 
 	openai "github.com/runnart/openaiclient"
 )
 
 func main() {
 	// Replace SERVER_URL and API_TOKEN with your actual SERVER_URL and API_TOKEN values
-	client, err := openai.NewClient("SERVER_URL", openai.WithClientMiddleware(openai.BearerTokenMiddleware("API_TOKEN")))
+	client, err := openai.NewBearerAuthClient(os.Getenv("SERVER_URL"), os.Getenv("API_TOKEN"))
 	if err != nil {
 		panic(err)
 	}
 
 	// Generate a text completion
-	prompt := "Once upon a time,"
+	prompt := "Introduce himself please"
 	req := &openai.CreateChatCompletionRequest{
 		Model: "gpt-3.5-turbo",
 		Messages: []openai.ChatCompletionRequestMessage{
