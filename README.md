@@ -1,3 +1,6 @@
+**Note: This project has been moved to a new location on GitHub. Please visit https://github.com/gopenai/openai-client for the latest version.**
+
+
 # OpenAI Golang SDK [![Go Reference](https://pkg.go.dev/badge/github.com/runnart/go-openaiclient.svg)](https://pkg.go.dev/github.com/runnart/go-openaiclient)
 
 This is an unofficial Golang SDK for the OpenAI API. It provides a simple and easy-to-use way to interact with the OpenAI API using Golang.
